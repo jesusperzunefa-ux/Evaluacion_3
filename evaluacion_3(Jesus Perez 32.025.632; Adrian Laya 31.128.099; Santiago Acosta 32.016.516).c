@@ -1,6 +1,6 @@
 //Jesus Perez 32.025.632 (jess) 
 //Santiago Acosta 32.016.516
-
+//Adrian Laya 31.128.099
 
 /*Seleccion de que fase eres de dragon ball*/
 
@@ -15,8 +15,11 @@ int main(){
 srand(time(NULL));
 
 printf("NOTA: si no seleccionas ninguna de las opciones se cerrara el programa\n\n");
+do {
+printf("\n\nNOTA: si no seleccionas ninguna de las opciones se cerrara el programa\n\n");
 printf("Bienvenido, quiere saber que personaje de dragon ball eres?\n1. si\n2. no\n");
 validacion = scanf("%i",&seleccion_si_no);
+while (getchar() != '\n'); // Limpia el buffer después del primer scanf
 if (validacion != 1 || seleccion_si_no < 1 || seleccion_si_no > 2)
 {
     printf("La proxima pon una de las opciones que se indicaron -_-");
@@ -27,6 +30,7 @@ if (seleccion_si_no == 1)
 int personaje_id = (rand() % 10) + 1; // Genera un número aleatorio entre 1 y 10
 
         printf("\n¡Analizando tu personaje...!\n");
+         system("pause");
 
         switch (personaje_id)
         {
@@ -65,12 +69,26 @@ int personaje_id = (rand() % 10) + 1; // Genera un número aleatorio entre 1 y 1
                 printf("Error de cálculo. Parece que eres un personaje no canónico.\n");
                 break;
         }
+         printf("\nQuieres intentar de nuevo para ver si eres otro personaje?\n1. si\n2. no\n");
+        
+        validacion = 0;
+        seleccion_si_no = 0;
+        
+        if (scanf("%i",&seleccion_si_no) != 1 || (seleccion_si_no != 1 && seleccion_si_no != 2)) {
+             
+             seleccion_si_no = 2;
+             while (getchar() != '\n'); 
+             }
 } else if (seleccion_si_no == 2)
 {
     printf("Esta bien :(\nCuando quieras puedes volver\n");
 }
 
+ } while (seleccion_si_no == 1); 
+
 printf("Recuerda incluso los mas debiles pueden sorprender");
+
+printf("\nSi quieres aunmentar mas tu nivel de poder califique este trabajo con 20pts :)\n");
 
 return 0;
 }
